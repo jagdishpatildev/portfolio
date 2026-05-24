@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-black text-gray-100;
+  overflow-x: hidden;
+}
+
+/* Apple-style gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+}
+
+/* Glass card — core reusable class */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Nav glass */
+.nav-link {
+  @apply relative px-3 py-2 text-sm text-gray-400 hover:text-white transition-all rounded-lg;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Tag pill */
+.tag-pill {
+  @apply px-2.5 py-1 text-xs rounded-full text-gray-300;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-5 py-2.5 rounded-full text-sm font-medium text-black bg-white transition-all;
+  letter-spacing: -0.01em;
+}
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+.btn-secondary {
+  @apply px-5 py-2.5 rounded-full text-sm font-medium text-white transition-all;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.canvas-container {
+  @apply fixed top-0 left-0 w-full h-full -z-10;
+  background: radial-gradient(circle at 50% 0%,
+      rgba(0, 0, 0, 0) 6%,
+      rgba(0, 0, 0, 0.8) 45%);
+}
+
+.gradient-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at 50% 0%, white 20%, transparent 70%);
+}
+
+.spotlight {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  --size: 600px;
+  --spotlight: radial-gradient(var(--size) var(--size) at center,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 100%);
+  mask-image: var(--spotlight);
+  -webkit-mask-image: var(--spotlight);
+  background: radial-gradient(300px 300px at center,
+      rgba(255, 255, 255, 0.05),
+      transparent 100%);
+}
+
+.cursor-copy {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'></path><rect x='8' y='2' width='8' height='4' rx='1' ry='1'></rect></svg>") 12 12, pointer;
+}
+
+.light-rays-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Section headings */
+.section-heading {
+  @apply text-4xl font-bold tracking-tight;
+  letter-spacing: -0.03em;
+  background-image: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
